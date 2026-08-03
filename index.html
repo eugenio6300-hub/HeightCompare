@@ -15,37 +15,73 @@
 
 </head>
 
+
 <body>
 
-    <div class="header">
+
+<div class="header">
 
     <h1>캐릭터 키 비교기</h1>
 
     <p>
-        캐릭터의 키를 입력하고 스탠딩 이미지를 비교해보세요. <br> 제작 by @braincontainer_ <br>오류 제보, 문의는 언제나 환영합니다. <br>+해당 사이트는 바이브코딩으로 제작되었습니다. 
+        캐릭터의 키를 입력하고 스탠딩 이미지를 비교해보세요. <br>
+        제작 by @braincontainer_ <br>
+        오류 제보, 문의는 언제나 환영합니다.
     </p>
 
 </div>
 
-    <div id="characterContainer">
 
-    </div>
 
-    <button id="addCharacter">
-        + 캐릭터 추가
-    </button>
+<div id="characterContainer">
 
-    <button id="compareButton">
-        비교하기
-    </button>
+</div>
 
-    <hr>
 
-    <div id="resultArea">
 
-    </div>
+<button id="addCharacter">
+    + 캐릭터 추가
+</button>
 
-    <script src="script.js"></script>
+
+
+<button id="compareButton">
+    비교하기
+</button>
+
+
+
+<div class="controlBox">
+
+    <label>
+        캐릭터 간격
+    </label>
+
+
+   <input
+    type="range"
+    id="gapControl"
+    min="-200"
+    max="200"
+    value="60"
+>
+
+</div>
+
+
+
+<hr>
+
+
+
+<div id="resultArea">
+
+</div>
+
+
+
+<script src="script.js"></script>
+
 
 </body>
 
