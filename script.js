@@ -6,6 +6,8 @@ const compareButton = document.getElementById("compareButton");
 
 const resultArea = document.getElementById("resultArea");
 
+const gapControl = document.getElementById("gapControl");
+
 
 // 캐릭터 입력창 생성
 
@@ -37,19 +39,21 @@ function createCharacterInput(){
         삭제
     </button>
 
-`;
-const deleteButton =
-    div.querySelector(".deleteButton");
+    `;
 
 
-deleteButton.addEventListener(
-    "click",
-    function(){
+    const deleteButton =
+        div.querySelector(".deleteButton");
 
-        div.remove();
 
-    }
-);
+    deleteButton.addEventListener(
+        "click",
+        function(){
+
+            div.remove();
+
+        }
+    );
 
 
     container.appendChild(div);
@@ -58,7 +62,7 @@ deleteButton.addEventListener(
 
 
 
-// 캐릭터 추가
+// 캐릭터 추가 버튼
 
 addButton.addEventListener(
     "click",
@@ -67,12 +71,11 @@ addButton.addEventListener(
 
 
 
-// 시작 캐릭터 2명
+// 기본 캐릭터 2개 생성
 
 createCharacterInput();
 
 createCharacterInput();
-
 
 
 
@@ -177,10 +180,16 @@ compareButton.addEventListener(
 
 
 
-            // 200cm 기준 700px
+            // 모바일 화면에서는 전체 크기 축소
+            // 키 비율은 유지
+
+            let mobileScale =
+                window.innerWidth <= 600 ? 0.7 : 1;
+
+
 
             img.style.height =
-                (character.height / 200 * 700)
+                (character.height / 200 * 700 * mobileScale)
                 + "px";
 
 
@@ -221,3 +230,34 @@ compareButton.addEventListener(
 
     }
 );
+
+
+
+
+// 캐릭터 간격 조절
+
+if(gapControl){
+
+    gapControl.addEventListener(
+        "input",
+        function(){
+
+            const displays =
+            document.querySelectorAll(".characterDisplay");
+
+
+            displays.forEach(function(display, index){
+
+                if(index !== 0){
+
+                    display.style.marginLeft =
+                    this.value + "px";
+
+                }
+
+            }, this);
+
+        }
+    );
+
+}
